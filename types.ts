@@ -4,6 +4,17 @@ export interface Unit {
   content: string[];
 }
 
+export interface Player {
+  id: string;
+  name: string;
+  avatar: string;
+  coins: number;
+  gems: number;
+  completed: CompletedStatus;
+  unitScores: UnitScores;
+  createdAt: number;
+}
+
 export interface LevelProps {
   unit: Unit;
   onComplete: (score: number) => void;
@@ -12,6 +23,7 @@ export interface LevelProps {
 }
 
 export type GameState = 
+  | 'PROFILE_SELECT'
   | 'LOBBY' 
   | 'LEVEL_SELECT' 
   | 'PLAY_L1' 
